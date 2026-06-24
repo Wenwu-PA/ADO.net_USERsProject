@@ -27,36 +27,6 @@
 
 <hr>
 
-<h2>Структура базы данных</h2>
-<p>Схема базы данных включает три таблицы:</p>
-<ol>
-    <li>
-        <strong>Users</strong> — основная таблица с пользователями
-        <ul>
-            <li><code>Id</code> (PK)</li>
-            <li><code>FirstName</code>, <code>LastName</code>, <code>Email</code></li>
-            <li><code>GroupId</code> (FK → Groups)</li>
-            <li><code>AddressId</code> (FK → Addresses)</li>
-        </ul>
-    </li>
-    <li>
-        <strong>Addresses</strong> — адреса пользователей
-        <ul>
-            <li><code>Id</code> (PK)</li>
-            <li><code>Street</code>, <code>City</code>, <code>PostalCode</code>, <code>Country</code></li>
-        </ul>
-    </li>
-    <li>
-        <strong>Groups</strong> — группы пользователей
-        <ul>
-            <li><code>Id</code> (PK)</li>
-            <li><code>Name</code>, <code>Description</code></li>
-        </ul>
-    </li>
-</ol>
-
-<hr>
-
 <h2>Установка и запуск</h2>
 
 <h3>1. Клонирование репозитория</h3>
