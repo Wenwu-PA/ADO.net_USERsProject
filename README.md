@@ -27,54 +27,9 @@
 
 <hr>
 
-<h2>Установка и запуск</h2>
-
 <h3>1. Клонирование репозитория</h3>
 <pre>git clone https://github.com/your-username/ADONET-FinalProject.git
 cd ADONET-FinalProject</pre>
-
-<h3>2. Настройка строки подключения</h3>
-<p>В файле <code>App.config</code> или в коде укажите строку подключения к вашей СУБД:</p>
-<pre>&lt;connectionStrings&gt;
-&lt;add name="DefaultConnection" 
-   connectionString="Server=localhost;Database=YourDB;Uid=root;Pwd=yourpassword;" /&gt;
-&lt;/connectionStrings&gt;</pre>
-
-<h3>3. Применение миграций (или выполнение SQL-скрипта)</h3>
-<p>Создайте базу данных и таблицы с помощью скрипта <code>schema.sql</code>.</p>
-
-<h3>4. Запуск приложения</h3>
-<pre>dotnet run</pre>
-
-<hr>
-
-<h2>Пример SQL-скрипта для создания таблиц</h2>
-<pre>CREATE TABLE Groups (
-Id INT PRIMARY KEY AUTO_INCREMENT,
-Name VARCHAR(50) NOT NULL,
-Description VARCHAR(255)
-);
-
-CREATE TABLE Addresses (
-Id INT PRIMARY KEY AUTO_INCREMENT,
-Street VARCHAR(100) NOT NULL,
-City VARCHAR(50) NOT NULL,
-PostalCode VARCHAR(20),
-Country VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE Users (
-Id INT PRIMARY KEY AUTO_INCREMENT,
-FirstName VARCHAR(50) NOT NULL,
-LastName VARCHAR(50) NOT NULL,
-Email VARCHAR(100) UNIQUE NOT NULL,
-GroupId INT,
-AddressId INT,
-FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE SET NULL,
-FOREIGN KEY (AddressId) REFERENCES Addresses(Id) ON DELETE CASCADE
-);</pre>
-
-<hr>
 
 <h2>Примеры использования</h2>
 
@@ -89,44 +44,6 @@ FOREIGN KEY (AddressId) REFERENCES Addresses(Id) ON DELETE CASCADE
 
 <h3>Удаление</h3>
 <p>Выберите пользователя и нажмите "Удалить" — запись будет удалена вместе с адресом (при условии каскадного удаления).</p>
-
-<hr>
-
-<h2>Особенности реализации</h2>
-<ul>
-    <li>Использование <code>SqlConnection</code> и <code>SqlCommand</code> для выполнения запросов.</li>
-    <li>Обработка параметризованных запросов для защиты от SQL-инъекций.</li>
-    <li>Поддержка транзакций при добавлении/изменении пользователя (связь Address + User).</li>
-    <li>Событийная модель обновления данных (DataGridView обновляется автоматически).</li>
-</ul>
-
-<hr>
-
-<h2>Планы по улучшению</h2>
-<ul>
-    <li>Добавить интерфейс на ASP.NET Core MVC</li>
-    <li>Переход на Entity Framework Core</li>
-    <li>Реализовать поиск пользователей по имени/email</li>
-    <li>Добавить валидацию данных на клиентской стороне</li>
-</ul>
-
-<hr>
-
-<h2>Лицензия</h2>
-<p>Проект распространяется под лицензией MIT. Подробнее в файле <code>LICENSE</code>.</p>
-
-<hr>
-
-<h2>Автор</h2>
-<p>
-    <strong>Ваше Имя</strong><br>
-    GitHub: <a href="https://github.com/your-username">@your-username</a><br>
-    Email: your.email@example.com
-</p>
-
-<hr>
-
-<p>Если у вас есть вопросы или предложения — создавайте <strong>Issue</strong> или пишите напрямую!</p>
 
 </body>
 </html>
